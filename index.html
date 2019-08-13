@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body onload="creatRandomCircle()">
+<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;">
+<script>
+    function Circle (x,y,radius) {
+        this.x= x;
+        this.y = y;
+        this.radius = radius;
+    }
+    
+    function creatCircle() {
+        let ctx = document.getElementById('myCanvas').getContext('2d');
+        let circle = new Circle(200,200,180)
+        ctx.beginPath();
+        ctx.arc(circle.x,circle.y,circle.radius,0,2*Math.PI);
+
+        ctx.fillStyle = "blue"
+
+        ctx.fill();
+        ctx.strokeStyle = "red"
+        ctx.stroke();
+        ctx.closePath();
+
+
+
+    }
+
+
+
+
+
+
+    function creatRandomCircle() {
+        let ctx = document.getElementById('myCanvas').getContext('2d');
+
+
+
+        let radius = Math.floor(Math.random()*100);
+
+        //let width =
+
+        let circle = new Circle(width,height,radius);
+
+        ctx.beginPath();
+        ctx.arc(circle.x,circle.y,radius,0,2*Math.PI);
+
+        ctx.strokeStyle ="green"
+        ctx.stroke();
+        ctx.closePath();
+    }
+</script>
+</body>
+</html>
