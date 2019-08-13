@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>Demo</title>
 </head>
-<body onload="creatRandomCircle()">
+<body onload="createCircle();createCircle();">
 <canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;">
+
 <script>
     function Circle (x,y,radius) {
         this.x= x;
@@ -29,30 +30,34 @@
 
 
     }
-
-
-
-
-
-
-    function creatRandomCircle() {
-        let ctx = document.getElementById('myCanvas').getContext('2d');
-
-
-
-        let radius = Math.floor(Math.random()*100);
-
-        //let width =
-
-        let circle = new Circle(width,height,radius);
-
-        ctx.beginPath();
-        ctx.arc(circle.x,circle.y,radius,0,2*Math.PI);
-
-        ctx.strokeStyle ="green"
-        ctx.stroke();
-        ctx.closePath();
+    function getRandomHex(){
+        return Math.floor(Math.random()*255);
     }
+
+    function getRandomColor(){
+        var red = getRandomHex();
+        var green = getRandomHex();
+        var blue = getRandomHex();
+        return "rgb(" + red + "," + blue + "," + green +")";
+    }
+
+
+    function createCircle(){
+        var ctx = document.getElementById("myCanvas").getContext("2d");
+        var radius = Math.floor(Math.random() * 80);
+        var color = getRandomColor();
+
+        let x = Math.floor(Math.random()*500);
+        let y = Math.floor(Math.random()*500);
+
+        var circle= new Circle(x , y, radius);
+        ctx.beginPath();
+        ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+        ctx.fillStyle = color;
+        ctx.fill();
+    }
+
+
 </script>
 </body>
 </html>
